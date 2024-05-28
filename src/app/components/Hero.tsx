@@ -31,7 +31,7 @@ export default function Hero() {
     gsap.set(firstText.current, { xPercent: xPercentRef.current });
     gsap.set(secondText.current, { xPercent: xPercentRef.current });
     requestAnimationFrame(animate);
-    xPercentRef.current += 0.01 * directionRef.current;
+    xPercentRef.current += 0.03 * directionRef.current;
   }, []);
 
   useLayoutEffect(() => {
@@ -44,7 +44,7 @@ export default function Hero() {
         end: window.innerHeight,
         onUpdate: (e) => (directionRef.current = e.direction * -1),
       },
-      x: "-100px",
+      x: "-250px",
     });
     requestAnimationFrame(animate);
   }, [animate]);
@@ -59,7 +59,7 @@ export default function Hero() {
           src="/images/hero_background.jpg"
           alt="hero"
         />
-        <div className="absolute top-[calc(100vh-100px)] sm:top-[calc(100vh-130px)] md:top-[calc(100vh-170px)] lg:top-[calc(100vh-220px)] xl:top-[calc(100vh-280px)] 2xl:top-[calc(100vh-350px)]">
+        <div className="absolute bottom-[50px]">
           <div
             ref={slider}
             className="[&>*]:white relative text-nowrap [&>*]:m-0 [&>*]:pr-12 [&>*]:text-[50px] [&>*]:font-semibold [&>*]:drop-shadow-[0_2px_1px_rgba(0,0,0,0.8)] [&>*]:sm:text-[80px] [&>*]:md:text-[110px] [&>*]:lg:text-[140px] [&>*]:xl:text-[170px] [&>*]:2xl:text-[200px]"
