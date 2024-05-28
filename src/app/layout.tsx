@@ -1,5 +1,5 @@
 import "~/styles/globals.css";
-
+import Header from "~/app/components/Header";
 import { GeistSans } from "geist/font/sans";
 
 export const metadata = {
@@ -15,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
