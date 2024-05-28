@@ -59,7 +59,7 @@ export default function Hero() {
           src="/images/hero_background.jpg"
           alt="hero"
         />
-        <div className="absolute bottom-[50px]">
+        <div className="absolute bottom-[150px] md:bottom-[50px]">
           <div
             ref={slider}
             className="[&>*]:white relative text-nowrap [&>*]:m-0 [&>*]:pr-12 [&>*]:text-[50px] [&>*]:font-semibold [&>*]:drop-shadow-[0_2px_1px_rgba(0,0,0,0.8)] [&>*]:sm:text-[80px] [&>*]:md:text-[110px] [&>*]:lg:text-[140px] [&>*]:xl:text-[170px] [&>*]:2xl:text-[200px]"
