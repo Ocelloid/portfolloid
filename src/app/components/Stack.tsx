@@ -88,7 +88,7 @@ export default function Stack() {
           ))}
         </section>
         <div data-scroll data-scroll-speed={0.1}>
-          <RoundedButton className="absolute left-40 top-[80%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-600/50 px-4 py-11 text-white md:right-40">
+          <RoundedButton className="absolute left-16 top-[80%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-600/50 px-4 py-11 text-white md:left-40 md:right-40">
             <p className="relative z-[1] m-0 font-light">Подробнее</p>
           </RoundedButton>
         </div>

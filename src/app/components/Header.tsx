@@ -24,7 +24,7 @@ export default function Header() {
         <div
           className={`w-full before:relative before:top-[5px] before:m-auto before:block before:h-[1px] before:w-[40%] before:bg-white before:transition-transform before:duration-300 before:content-[""] after:relative after:top-[-5px] after:m-auto after:block after:h-[1px] after:w-[40%] after:bg-white after:transition-transform after:duration-300 after:content-[""] ${
             isActive
-              ? "before:top-0 before:-rotate-45 after:top-0 after:rotate-45"
+              ? "before:top-0 before:w-1/2 before:-rotate-45 after:top-0 after:w-1/2 after:rotate-45"
               : ""
           }`}
         />
