@@ -11,7 +11,7 @@ export function GalleryItem({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function Gallery({ children }: { children: React.ReactNode }) {
+export default function Gallery({ children }: { children?: React.ReactNode }) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef(null);
 
@@ -60,10 +60,6 @@ export default function Gallery({ children }: { children: React.ReactNode }) {
           ref={sectionRef}
           className="gallery relative flex h-screen w-screen flex-row"
         >
-          <GalleryItem>item 1</GalleryItem>
-          <GalleryItem>item 2</GalleryItem>
-          <GalleryItem>item 3</GalleryItem>
-          <GalleryItem>item 4</GalleryItem>
           {children}
         </div>
       </div>
