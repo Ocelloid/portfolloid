@@ -33,7 +33,7 @@ export default function Description() {
           })}
         </p>
         <motion.p
-          className="col-span-1 text-lg font-light"
+          className="col-span-1 text-justify text-lg font-light"
           variants={opacity}
           animate={isInView ? "open" : "closed"}
         >
