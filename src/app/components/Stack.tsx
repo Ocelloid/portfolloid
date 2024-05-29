@@ -2,7 +2,7 @@
 import { gsap } from "gsap";
 import { useLayoutEffect, useRef } from "react";
 import { MdCircle } from "react-icons/md";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Fragment } from "react";
 import stack from "./stack.json";
 import RoundedButton from "./ui/RoundedButton";
@@ -54,9 +54,11 @@ export default function Stack() {
 
   return (
     <>
-      <div className="relative p-8">
-        <p className="text-2xl font-semibold md:text-6xl">Стек технологий</p>
-        <p className="mb-4 text-sm font-light md:text-2xl">
+      <div className="relative">
+        <p className="px-8 text-2xl font-semibold md:text-6xl">
+          Стек технологий
+        </p>
+        <p className="mb-4 px-8 text-sm font-light md:text-2xl">
           Что я использую в работе
         </p>
         <section className="wrapper overflow-hidden" ref={component}>
@@ -88,7 +90,7 @@ export default function Stack() {
           ))}
         </section>
         <div data-scroll data-scroll-speed={0.1}>
-          <RoundedButton className="absolute left-16 top-[80%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-950/50 px-4 py-11 text-white md:left-40 md:right-40">
+          <RoundedButton className="absolute left-16 top-[80%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2 outline-offset-2 hover:outline-blue-500 md:left-40 md:right-40">
             <p className="relative z-[1] m-0 font-semibold">Подробнее</p>
           </RoundedButton>
         </div>

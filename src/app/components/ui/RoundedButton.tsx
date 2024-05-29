@@ -1,5 +1,5 @@
-import React from "react";
-import { useEffect, useRef } from "react";
+"use client";
+import React, { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import Magnet from "./Magnet";
 
@@ -16,9 +16,23 @@ export default function RoundedButton({
   className?: string;
   onClick?: () => void;
 }) {
+  const [windowWidth, setWindowWidth] = useState(0);
   const circle = useRef(null);
   const timeline = useRef<gsap.core.Timeline | null>(null);
   let timeoutId: number | null = null;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     timeline.current = gsap.timeline({ paused: true });
     timeline.current
@@ -57,9 +71,10 @@ export default function RoundedButton({
         style={{ overflow: "hidden" }}
         onMouseEnter={() => {
           manageMouseEnter(() => {
-            setTimeout(() => {
-              manageMouseLeave();
-            }, 500);
+            if (windowWidth < 768)
+              setTimeout(() => {
+                manageMouseLeave();
+              }, 500);
           });
         }}
         onMouseLeave={() => {

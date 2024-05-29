@@ -20,7 +20,7 @@ const navItems = [
     href: "/pets",
   },
   {
-    title: "Связь",
+    title: "Контакты",
     href: "/contact",
   },
 ];

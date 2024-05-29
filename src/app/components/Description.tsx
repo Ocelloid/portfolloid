@@ -33,15 +33,15 @@ export default function Description() {
           })}
         </p>
         <motion.p
-          className="col-span-1 text-justify text-lg font-light"
+          className="col-span-1 text-end text-lg font-light"
           variants={opacity}
           animate={isInView ? "open" : "closed"}
         >
-          Меня же выделяет сочетание моей страсти к дизайну, таланта в
-          программировании и внимательности к людям.
+          Меня же выделяют моя страсть к дизайну, талант в программировании и
+          внимание к людям, с которыми я работаю.
         </motion.p>
         <div data-scroll data-scroll-speed={0.1}>
-          <RoundedButton className="absolute right-4 top-[60%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-950/50 px-4 py-11 text-white md:right-40">
+          <RoundedButton className="absolute right-4 top-[60%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40">
             <p className="relative z-[1] m-0 font-semibold">Обо мне</p>
           </RoundedButton>
         </div>
