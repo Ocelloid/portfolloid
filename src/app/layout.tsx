@@ -17,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>
-        <Header />
-        <GradientWrapper>{children}</GradientWrapper>
+        <GradientWrapper>
+          <Header />
+          {children}
+        </GradientWrapper>
       </body>
     </html>
   );
