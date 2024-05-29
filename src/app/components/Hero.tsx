@@ -36,6 +36,11 @@ export default function Hero() {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.addEventListener("refresh", function () {
+      if (document.body.getAttribute("style") === "") {
+        document.body.removeAttribute("style");
+      }
+    });
     gsap.to(slider.current, {
       scrollTrigger: {
         trigger: document.documentElement,
