@@ -72,7 +72,7 @@ export default function RoundedButton({
           ref={circle}
           style={{ backgroundColor }}
           className="absolute top-full h-[150%] w-full rounded-full"
-        ></div>
+        />
       </div>
     </Magnet>
   );
