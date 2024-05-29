@@ -37,7 +37,7 @@ export default function Nav() {
       exit="exit"
       className="white fixed right-0 top-0 z-[100] h-screen bg-slate-900"
     >
-      <div className="box-border flex h-full flex-col justify-between p-24 text-slate-200">
+      <div className="box-border flex h-full flex-col justify-between p-12 text-slate-200">
         <div
           onMouseLeave={() => {
             setSelectedIndicator(pathname);
