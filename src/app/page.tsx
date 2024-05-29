@@ -3,6 +3,7 @@ import Hero from "~/app/components/Hero";
 import Stack from "~/app/components/Stack";
 import Description from "~/app/components/Description";
 import Gallery from "~/app/components/Gallery";
+import Contact from "~/app/components/Contact";
 import Footer from "~/app/components/Footer";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import Lenis from "lenis";
@@ -27,7 +28,7 @@ export default function HomePage() {
 
   return (
     <main onMouseMove={handleMouseMove}>
-      <div className="group flex flex-col overflow-x-hidden bg-gradient-to-b from-slate-700 to-slate-950 text-white">
+      <div className="group flex flex-col overflow-hidden bg-gradient-to-b from-slate-700 to-slate-950 text-white">
         <motion.div
           className="transtition fixed inset-0 opacity-0 duration-500 group-hover:opacity-100"
           style={{
@@ -38,6 +39,7 @@ export default function HomePage() {
         <Description />
         <Stack />
         <Gallery />
+        <Contact />
         <Footer />
       </div>
     </main>
