@@ -10,6 +10,7 @@ export default function Contact() {
             <div className="relative h-24 w-24 overflow-hidden rounded-full">
               <Image
                 fill={true}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 alt={"image"}
                 src={`/images/favicon.png`}
                 style={{
@@ -26,7 +27,7 @@ export default function Contact() {
             </p>
           </RoundedButton>
         </div>
-        <div className="m-12 flex gap-5">
+        <div className="m-12 flex flex-col gap-5 md:flex-row">
           <RoundedButton className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40">
             <p>n.a.grebnev.work@gmail.com</p>
           </RoundedButton>
