@@ -8,11 +8,15 @@ import Footer from "./Footer";
 
 const navItems = [
   {
-    title: "Кто я",
+    title: "Лендинг",
     href: "/",
   },
   {
-    title: "Стек",
+    title: "Обо мне",
+    href: "/about",
+  },
+  {
+    title: "Технологии",
     href: "/stack",
   },
   {
