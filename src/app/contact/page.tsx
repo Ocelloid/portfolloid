@@ -46,7 +46,7 @@ const FormSchema = z.object({
     .min(1, { message: "Это обязательное поле" }),
 });
 
-export function ContactForm() {
+function ContactForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
