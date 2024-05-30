@@ -2,7 +2,7 @@
 import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
 import { slideUp, opacity } from "./animation";
-import RoundedButton from "~/app/components/ui/RoundedButton";
+import RoundedButton from "~/components/ui/RoundedButton";
 
 export default function Description() {
   const phrase =

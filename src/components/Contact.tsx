@@ -1,7 +1,9 @@
 import Image from "next/image";
-import RoundedButton from "~/app/components/ui/RoundedButton";
+import RoundedButton from "~/components/ui/RoundedButton";
+import { useRouter } from "next/navigation";
 
 export default function Contact() {
+  const router = useRouter();
   return (
     <div className="relative flex flex-col items-center justify-center text-white">
       <div className="w-full max-w-7xl pt-48">
@@ -19,9 +21,14 @@ export default function Contact() {
                 }}
               />
             </div>
-            <p className="ml-2 text-2xl">Давайте поработаем вместе</p>
+            <p className="ml-2 text-2xl">Давайте поработаем</p>
           </span>
-          <RoundedButton className="absolute right-4 top-[50%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-950/50 px-4 py-8 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40">
+          <RoundedButton
+            onClick={() => {
+              void router.push("/contact");
+            }}
+            className="absolute right-4 top-[50%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-950/50 px-4 py-8 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
+          >
             <p className="relative z-[2] m-0 text-center font-semibold">
               Написать мне
             </p>

@@ -1,11 +1,11 @@
 "use client";
-import Hero from "~/app/components/Hero";
-import Stack from "~/app/components/Stack";
-import Description from "~/app/components/Description";
-import Gallery from "~/app/components/Gallery";
-import Contact from "~/app/components/Contact";
-import Footer from "~/app/components/Footer";
-import Preloader from "~/app/components/Preloader";
+import Hero from "~/components/Hero";
+import Stack from "~/components/Stack";
+import Description from "~/components/Description";
+import Gallery from "~/components/Gallery";
+import Contact from "~/components/Contact";
+import Footer from "~/components/Footer";
+import Preloader from "~/components/Preloader";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 
@@ -17,6 +17,7 @@ export default function HomePage() {
       setTimeout(() => {
         window.scrollTo(0, 0);
         setIsLoading(false);
+        window.scrollTo(0, 0);
       }, 2000);
     })();
   }, []);
@@ -29,7 +30,7 @@ export default function HomePage() {
       <Hero />
       <Description />
       <Stack />
-      <Gallery />
+      {/* <Gallery /> */}
       <Contact />
       <Footer />
     </main>

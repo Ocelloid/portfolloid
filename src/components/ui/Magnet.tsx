@@ -2,7 +2,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
-export default function Magnet({ children }: { children: React.ReactNode }) {
+export default function Magnet({
+  children,
+  pull = 0.35,
+}: {
+  children: React.ReactNode;
+  pull?: number;
+}) {
   const [windowWidth, setWindowWidth] = useState(0);
   const magnet = useRef<HTMLDivElement | null>(null);
 
@@ -41,8 +47,8 @@ export default function Magnet({ children }: { children: React.ReactNode }) {
         currentElement.getBoundingClientRect();
       const x = clientX - (left + width / 2);
       const y = clientY - (top + height / 2);
-      xTo(x * 0.35);
-      yTo(y * 0.35);
+      xTo(x * pull);
+      yTo(y * pull);
       if (windowWidth < 768)
         setTimeout(() => {
           xTo(0);
@@ -61,7 +67,7 @@ export default function Magnet({ children }: { children: React.ReactNode }) {
       currentElement?.removeEventListener("mousemove", handleMouseMove);
       currentElement?.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [children, windowWidth]);
+  }, [children, pull, windowWidth]);
 
   const childAsElement = React.isValidElement(children) ? children : <></>;
   return React.cloneElement(childAsElement, { ref: magnet });

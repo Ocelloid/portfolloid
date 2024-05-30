@@ -1,7 +1,7 @@
 import "~/styles/globals.css";
-import Header from "~/app/components/Header";
+import Header from "~/components/Header";
 import { GeistSans } from "geist/font/sans";
-import GradientWrapper from "~/app/components/GradientWrapper";
+import GradientWrapper from "~/components/GradientWrapper";
 
 export const metadata = {
   title: "Никита Гребнев",

@@ -16,6 +16,7 @@ export default function Header() {
   return (
     <>
       <RoundedButton
+        pull={1}
         onClick={() => {
           setIsActive(!isActive);
         }}
