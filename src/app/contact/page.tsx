@@ -203,11 +203,11 @@ export default function ContactPage() {
               <Magnet pull={0.1}>
                 <div>
                   <a
-                    href="mailto:n.a.grebnev.work@gmail.com"
+                    href="mailto:ocelloid@gmail.com"
                     target="_blank"
                     className="text-lg text-white"
                   >
-                    n.a.grebnev.work@gmail.com
+                    ocelloid@gmail.com
                   </a>
                 </div>
               </Magnet>

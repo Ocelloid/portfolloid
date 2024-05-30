@@ -36,13 +36,11 @@ export default function Contact() {
         </div>
         <div className="m-12 flex flex-col gap-5 md:flex-row">
           <RoundedButton
-            onClick={() =>
-              (window.location.href = "mailto:n.a.grebnev.work@gmail.com")
-            }
+            onClick={() => (window.location.href = "mailto:ocelloid@gmail.com")}
             className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
           >
             <p className="relative z-[2] m-0 text-center font-semibold">
-              n.a.grebnev.work@gmail.com
+              ocelloid@gmail.com
             </p>
           </RoundedButton>
           <RoundedButton
