@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Fragment } from "react";
 import stack from "./stack.json";
 import RoundedButton from "./ui/RoundedButton";
+import { useRouter } from "next/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.addEventListener("refresh", function () {
@@ -16,6 +17,7 @@ ScrollTrigger.addEventListener("refresh", function () {
 
 export default function Stack() {
   const component = useRef(null);
+  const router = useRouter();
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -90,7 +92,12 @@ export default function Stack() {
           ))}
         </section>
         <div data-scroll data-scroll-speed={0.1}>
-          <RoundedButton className="absolute left-16 top-[80%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2 outline-offset-2 hover:outline-blue-500 md:left-40 md:right-40">
+          <RoundedButton
+            onClick={() => {
+              router.push("/stack");
+            }}
+            className="absolute left-16 top-[80%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2 outline-offset-2 hover:outline-blue-500 md:left-40 md:right-40"
+          >
             <p className="relative z-[1] m-0 font-semibold">Подробнее</p>
           </RoundedButton>
         </div>
