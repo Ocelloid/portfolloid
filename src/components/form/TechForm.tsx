@@ -21,7 +21,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { GradientPicker } from "~/components/ui/GradientPicker";
+import { ColorPicker } from "~/components/ui/ColorPicker";
 
 const FormSchema = z.object({
   name: z
@@ -141,7 +141,7 @@ export default function TechForm({
           render={() => (
             <FormItem className="col-span-1">
               <FormLabel>Цвет</FormLabel>
-              <GradientPicker
+              <ColorPicker
                 className="w-full truncate bg-transparent"
                 background={form.watch("color")}
                 setBackground={(background) => {

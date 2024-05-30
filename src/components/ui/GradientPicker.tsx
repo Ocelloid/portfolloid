@@ -99,13 +99,13 @@ export function GradientPicker({
               <Paintbrush className="h-4 w-4" />
             )}
             <div className="flex-1 truncate">
-              {background ? background : "Выбери цвет"}
+              {background ? background : "Pick a color"}
             </div>
           </div>
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-64">
-        {/* <Tabs defaultValue={defaultTab} className="w-full">
+        <Tabs defaultValue={defaultTab} className="w-full">
           <TabsList className="mb-4 w-full">
             <TabsTrigger className="flex-1" value="solid">
               Solid
@@ -116,22 +116,20 @@ export function GradientPicker({
             <TabsTrigger className="flex-1" value="image">
               Image
             </TabsTrigger>
-          </TabsList> */}
+          </TabsList>
 
-        {/* <TabsContent value="solid" className="mt-0 flex flex-wrap gap-1"> */}
-        <div className="mb-2 flex flex-wrap gap-1">
-          {solids.map((s) => (
-            <div
-              key={s}
-              style={{ background: s }}
-              className="h-6 w-6 cursor-pointer rounded-md active:scale-105"
-              onClick={() => setBackground(s)}
-            />
-          ))}
-        </div>
-        {/* </TabsContent> */}
+          <TabsContent value="solid" className="mt-0 flex flex-wrap gap-1">
+            {solids.map((s) => (
+              <div
+                key={s}
+                style={{ background: s }}
+                className="h-6 w-6 cursor-pointer rounded-md active:scale-105"
+                onClick={() => setBackground(s)}
+              />
+            ))}
+          </TabsContent>
 
-        {/* <TabsContent value="gradient" className="mt-0">
+          <TabsContent value="gradient" className="mt-0">
             <div className="mb-2 flex flex-wrap gap-1">
               {gradients.map((s) => (
                 <div
@@ -180,7 +178,7 @@ export function GradientPicker({
           </TabsContent>
 
           <TabsContent value="password">Change your password here.</TabsContent>
-        </Tabs> */}
+        </Tabs>
 
         <Input
           id="custom"
