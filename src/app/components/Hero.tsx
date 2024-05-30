@@ -28,8 +28,10 @@ export default function Hero() {
     if (xPercentRef.current > 5) {
       xPercentRef.current = -95;
     }
-    gsap.set(firstText.current, { xPercent: xPercentRef.current });
-    gsap.set(secondText.current, { xPercent: xPercentRef.current });
+    if (!!firstText.current)
+      gsap.set(firstText.current, { xPercent: xPercentRef.current });
+    if (!!secondText.current)
+      gsap.set(secondText.current, { xPercent: xPercentRef.current });
     requestAnimationFrame(animate);
     xPercentRef.current += 0.03 * directionRef.current;
   }, []);
