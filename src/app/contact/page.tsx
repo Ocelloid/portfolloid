@@ -214,7 +214,7 @@ export default function ContactPage() {
               <Magnet pull={0.1}>
                 <div>
                   <a
-                    href={`tel:+79958578400`}
+                    href={`tel:+79958578004`}
                     target="_blank"
                     className="text-lg text-white"
                   >

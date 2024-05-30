@@ -44,7 +44,7 @@ export default function Contact() {
             </p>
           </RoundedButton>
           <RoundedButton
-            onClick={() => (window.location.href = "tel:+79958578400")}
+            onClick={() => (window.location.href = "tel:+79958578004")}
             className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
           >
             <p className="relative z-[2] m-0 text-center font-semibold">
