@@ -52,6 +52,10 @@ export async function updateTechnology(id: number, technology: Tech) {
     .where(eq(technologies.id, id));
 }
 
+export async function deleteTechnology(id: number) {
+  await db.delete(technologies).where(eq(technologies.id, id));
+}
+
 export async function getTechnologies() {
   const technologies = await db.query.technologies.findMany();
   return technologies;
