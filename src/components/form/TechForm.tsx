@@ -1,5 +1,9 @@
 "use client";
-import { createTechnology } from "~/server/db/queries";
+import {
+  type Tech,
+  createTechnology,
+  updateTechnology,
+} from "~/server/db/queries";
 import { Button } from "~/components/ui/button";
 import {
   Form,
@@ -42,31 +46,51 @@ const FormSchema = z.object({
   color: z.string().max(16, { message: "Не больше 16 символов, пожалуйста" }),
 });
 
-export default function TechForm() {
+export default function TechForm({
+  tech,
+  onSuccess,
+}: {
+  tech?: Tech;
+  onSuccess?: () => void;
+}) {
   const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      name: "",
-      link: "",
-      code: "",
-      desc: "",
-      color: "",
+      name: tech?.name ?? "",
+      link: tech?.link ?? "",
+      code: tech?.code ?? "",
+      desc: tech?.desc ?? "",
+      color: tech?.color ?? "",
     },
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log(data);
-    createTechnology(data)
-      .then(() => {
-        toast("Технология успешно добавлена");
-        router.refresh();
-        form.reset();
-      })
-      .catch((e) => {
-        console.log(e);
-        toast("Ошибка добавления технологии");
-      });
+    if (!tech)
+      createTechnology(data)
+        .then(() => {
+          toast("Технология успешно добавлена");
+          if (onSuccess) onSuccess();
+          router.refresh();
+          form.reset();
+        })
+        .catch((e) => {
+          console.log(e);
+          toast("Ошибка добавления технологии");
+        });
+    else
+      updateTechnology(Number(tech.id), data)
+        .then(() => {
+          toast("Технология успешно обновлена");
+          if (onSuccess) onSuccess();
+          router.refresh();
+          form.reset();
+        })
+        .catch((e) => {
+          console.log(e);
+          toast("Ошибка обновления технологии");
+        });
   }
 
   return (
