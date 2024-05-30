@@ -1,7 +1,10 @@
 import Code from "~/components/Code";
-import stack from "~/components/stack.json";
+import { getTechnologies } from "~/server/db/queries";
+import TechForm from "~/components/form/TechForm";
 
-export default function Stack() {
+export default async function Stack() {
+  const stack = await getTechnologies();
+
   return (
     <div className="flex min-h-screen flex-col">
       <div className="mx-auto w-full px-8 py-4 md:p-20">
@@ -10,6 +13,7 @@ export default function Stack() {
           Языки, фреймворки, библиотеки и инструменты, которые я использую в
           проектах.
         </p>
+        <TechForm />
         <div className="mt-4 columns-1 gap-6 lg:columns-2 2xl:columns-3">
           {stack.map((data, index) => {
             return (

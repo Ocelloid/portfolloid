@@ -36,3 +36,22 @@ export const inquiries = createTable(
     nameIndex: index("name_idx").on(example.username),
   }),
 );
+
+export const technologies = createTable(
+  "technology",
+  {
+    id: serial("id").primaryKey(),
+    name: varchar("name", { length: 256 }),
+    link: varchar("link", { length: 256 }),
+    desc: varchar("desc", { length: 1024 }),
+    code: varchar("code", { length: 1024 }),
+    color: varchar("color", { length: 16 }),
+    createdAt: timestamp("created_at", { withTimezone: true })
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updatedAt", { withTimezone: true }),
+  },
+  (example) => ({
+    nameIndex: index("tech_name_idx").on(example.name),
+  }),
+);
