@@ -43,7 +43,7 @@ export default function Preloader() {
       {dimension.width > 0 && (
         <>
           <motion.p
-            className="absolute z-10 flex flex-row items-center justify-center text-center text-3xl font-bold text-white"
+            className="absolute flex flex-row items-center justify-center text-center text-3xl font-bold text-white"
             variants={preloaderOpacity}
             initial="initial"
             animate="enter"

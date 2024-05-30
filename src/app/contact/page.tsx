@@ -176,7 +176,7 @@ function ContactForm() {
 
 export default function ContactPage() {
   return (
-    <div className="z-10 flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col">
       <div className="container mx-auto p-4 md:p-20 ">
         <div className="grid grid-cols-1 md:grid-cols-3">
           <div className="col-span-2 flex flex-col">
