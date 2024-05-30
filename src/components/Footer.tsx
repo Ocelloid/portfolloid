@@ -17,15 +17,27 @@ export default function Footer() {
           <div className="flex shrink-0 flex-row justify-between md:flex-col">
             <div className="flex flex-col gap-2 md:flex-row">
               <h3 className="min-w-44 uppercase text-[#ffffff80]">Работа</h3>
-              <a className="flex min-w-28 flex-row items-center gap-1">
+              <a
+                href="https://github.com/ocelloid/"
+                target="_blank"
+                className="flex min-w-28 flex-row items-center gap-1"
+              >
                 <RxGithubLogo />
                 GitHub
               </a>
-              <a className="flex min-w-28 flex-row items-center gap-1">
+              <a
+                href="https://www.linkedin.com/in/nikita-grebnev-b9a2a413b/"
+                target="_blank"
+                className="flex min-w-28 flex-row items-center gap-1"
+              >
                 <RxLinkedinLogo />
                 LinkedIn
               </a>
-              <a className="flex min-w-28 flex-row items-center gap-1">
+              <a
+                href="https://vercel.com/ocelloids-projects"
+                target="_blank"
+                className="flex min-w-28 flex-row items-center gap-1"
+              >
                 <RxVercelLogo />
                 Vercel
               </a>
@@ -34,15 +46,27 @@ export default function Footer() {
               <h3 className="min-w-44 uppercase text-[#ffffff80]">
                 Социальные сети
               </h3>
-              <a className="flex min-w-28 flex-row items-center gap-1">
+              <a
+                href="https://t.me/ocelloid"
+                target="_blank"
+                className="flex min-w-28 flex-row items-center gap-1"
+              >
                 <LiaTelegram />
                 Telegram
               </a>
-              <a className="flex min-w-28 flex-row items-center gap-1">
+              <a
+                href="https://vk.com/ocelloid"
+                target="_blank"
+                className="flex min-w-28 flex-row items-center gap-1"
+              >
                 <SlSocialVkontakte />
-                VKontakte
+                ВКонтакте
               </a>
-              <a className="flex min-w-28 flex-row items-center gap-1">
+              <a
+                href="https://www.instagram.com/lateral_move"
+                target="_blank"
+                className="flex min-w-28 flex-row items-center gap-1"
+              >
                 <RxInstagramLogo />
                 Instagram
               </a>

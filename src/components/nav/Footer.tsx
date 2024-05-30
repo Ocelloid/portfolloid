@@ -10,27 +10,51 @@ import { LiaTelegram } from "react-icons/lia";
 export default function Footer() {
   return (
     <div className="flex w-full max-w-72 flex-row flex-wrap justify-between gap-2 text-sm">
-      <a className="flex flex-row items-center gap-1">
+      <a
+        href="https://github.com/ocelloid/"
+        target="_blank"
+        className="flex flex-row items-center gap-1"
+      >
         <RxGithubLogo />
         GitHub
       </a>
-      <a className="flex flex-row items-center gap-1">
+      <a
+        href="https://www.linkedin.com/in/nikita-grebnev-b9a2a413b/"
+        target="_blank"
+        className="flex flex-row items-center gap-1"
+      >
         <RxLinkedinLogo />
         LinkedIn
       </a>
-      <a className="flex flex-row items-center gap-1">
+      <a
+        href="https://vercel.com/ocelloids-projects"
+        target="_blank"
+        className="flex flex-row items-center gap-1"
+      >
         <RxVercelLogo />
         Vercel
       </a>
-      <a className="flex flex-row items-center gap-1">
+      <a
+        href="https://t.me/ocelloid"
+        target="_blank"
+        className="flex flex-row items-center gap-1"
+      >
         <LiaTelegram />
         Telegram
       </a>
-      <a className="flex flex-row items-center gap-1">
+      <a
+        href="https://vk.com/ocelloid"
+        target="_blank"
+        className="flex flex-row items-center gap-1"
+      >
         <SlSocialVkontakte />
-        VKontakte
+        ВКонтакте
       </a>
-      <a className="flex flex-row items-center gap-1">
+      <a
+        href="https://www.instagram.com/lateral_move"
+        target="_blank"
+        className="flex flex-row items-center gap-1"
+      >
         <RxInstagramLogo />
         Instagram
       </a>

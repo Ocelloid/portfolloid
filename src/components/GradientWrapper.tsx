@@ -29,7 +29,7 @@ export default function GradientWrapper({
         <motion.div
           className="transtition fixed inset-0 opacity-0 duration-500 group-hover:opacity-100"
           style={{
-            background: useMotionTemplate`radial-gradient(circle at ${mouseX}px ${mouseY}px, #020617, transparent 125%)`,
+            background: useMotionTemplate`radial-gradient(circle at ${mouseX}px ${mouseY}px, #020617AA, transparent 125%)`,
           }}
         />
         {children}

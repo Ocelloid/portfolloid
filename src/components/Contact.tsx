@@ -35,12 +35,20 @@ export default function Contact() {
           </RoundedButton>
         </div>
         <div className="m-12 flex flex-col gap-5 md:flex-row">
-          <RoundedButton className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40">
+          <RoundedButton
+            onClick={() =>
+              (window.location.href = "mailto:n.a.grebnev.work@gmail.com")
+            }
+            className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
+          >
             <p className="relative z-[2] m-0 text-center font-semibold">
               n.a.grebnev.work@gmail.com
             </p>
           </RoundedButton>
-          <RoundedButton className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40">
+          <RoundedButton
+            onClick={() => (window.location.href = "tel:+79958578400")}
+            className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
+          >
             <p className="relative z-[2] m-0 text-center font-semibold">
               +7 (995) 857-84-00
             </p>
