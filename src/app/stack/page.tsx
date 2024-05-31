@@ -10,7 +10,7 @@ import { type Tech, getTechnologies } from "~/server/db/queries";
 import TechCard from "~/components/TechCard";
 import { Input } from "~/components/ui/input";
 import { FaSearch } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import Loading from "~/components/ui/Loading";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
@@ -23,17 +23,18 @@ function Search({
   onChange: (e: string) => void;
 }) {
   const searchParams = useSearchParams();
-  const [search, setSearch] = useState(val);
 
-  useEffect(() => {
-    setSearch(searchParams.get("s") ?? "");
-    onChange(searchParams.get("s") ?? "");
-  }, [onChange, searchParams]);
+  const handleSearchChange = useCallback(
+    (s: string) => {
+      onChange(s);
+    },
+    [onChange],
+  );
 
-  const handleSearchChange = (s: string) => {
-    setSearch(s);
-    onChange(s);
-  };
+  useLayoutEffect(() => {
+    handleSearchChange(searchParams.get("s") ?? "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="relative ml-auto flex-1 md:grow-0">
@@ -41,7 +42,7 @@ function Search({
       <Input
         type="search"
         placeholder="Поиск"
-        value={search}
+        value={val}
         onChange={(e) => handleSearchChange(e.target.value)}
         className="border-b-1 mt-2 rounded-none border-x-0 border-t-0 border-b-slate-300 bg-transparent pl-8 focus:rounded-lg"
       />
