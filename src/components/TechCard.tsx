@@ -49,9 +49,7 @@ export default function TechCard({ tech }: { tech: Tech }) {
         <TechDialog data={tech} /> */}
         </div>
         {!!tech.code && <Code language="js">{tech.code}</Code>}
-        <p className="mt-2 max-h-10 whitespace-break-spaces text-sm">
-          {tech.desc}
-        </p>
+        <p className="mt-2 whitespace-break-spaces text-sm">{tech.desc}</p>
       </div>
     </motion.div>
   );
