@@ -1,6 +1,6 @@
 "use client";
 import { gsap } from "gsap";
-import { useLayoutEffect, useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { MdCircle } from "react-icons/md";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Fragment } from "react";
