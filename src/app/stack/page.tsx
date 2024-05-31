@@ -16,7 +16,7 @@ import { useSearchParams } from "next/navigation";
 
 export default function Stack() {
   const searchParams = useSearchParams();
-  const [search, setSearch] = useState(searchParams.get("s"));
+  const [search, setSearch] = useState(searchParams.get("s") ?? "");
   const [stack, setStack] = useState<Tech[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
