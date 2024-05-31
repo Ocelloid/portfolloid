@@ -2,6 +2,8 @@ import "~/styles/globals.css";
 import Header from "~/components/Header";
 import { GeistSans } from "geist/font/sans";
 import GradientWrapper from "~/components/GradientWrapper";
+import Contact from "~/components/Contact";
+import Footer from "~/components/Footer";
 
 export const metadata = {
   title: "Никита Гребнев",
@@ -20,6 +22,8 @@ export default function RootLayout({
         <GradientWrapper>
           <Header />
           {children}
+          <Contact />
+          <Footer />
         </GradientWrapper>
       </body>
     </html>

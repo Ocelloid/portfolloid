@@ -1,12 +1,15 @@
+"use client";
 import Image from "next/image";
 import RoundedButton from "~/components/ui/RoundedButton";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Contact() {
   const router = useRouter();
+  const pathname = usePathname();
+  if (pathname === "/contact") return null;
   return (
     <div className="relative flex flex-col items-center justify-center text-white">
-      <div className="w-full max-w-7xl pt-48">
+      <div className="w-full max-w-7xl pt-6">
         <div className="relative mx-4 border-b border-white/10">
           <span className="mb-4 flex items-center">
             <div className="relative h-24 w-24 overflow-hidden rounded-full">
@@ -34,10 +37,10 @@ export default function Contact() {
             </p>
           </RoundedButton>
         </div>
-        <div className="m-12 flex flex-col gap-5 md:flex-row">
+        <div className="m-12 flex flex-col gap-5 pt-4 md:flex-row">
           <RoundedButton
             onClick={() => (window.location.href = "mailto:ocelloid@gmail.com")}
-            className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
+            className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-6 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
           >
             <p className="relative z-[2] m-0 text-center font-semibold">
               ocelloid@gmail.com
@@ -45,7 +48,7 @@ export default function Contact() {
           </RoundedButton>
           <RoundedButton
             onClick={() => (window.location.href = "tel:+79958578004")}
-            className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
+            className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-6 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
           >
             <p className="relative z-[2] m-0 text-center font-semibold">
               +7 (995) 857-84-00

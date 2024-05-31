@@ -25,8 +25,8 @@ export const inquiries = createTable(
     username: varchar("name", { length: 256 }),
     email: varchar("email", { length: 256 }),
     organization: varchar("organization", { length: 256 }),
-    services: varchar("services", { length: 1024 }),
-    message: varchar("message", { length: 1024 }),
+    services: varchar("services", { length: 4096 }),
+    message: varchar("message", { length: 4096 }),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
@@ -43,8 +43,8 @@ export const technologies = createTable(
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }),
     link: varchar("link", { length: 256 }),
-    desc: varchar("desc", { length: 1024 }),
-    code: varchar("code", { length: 1024 }),
+    desc: varchar("desc", { length: 4096 }),
+    code: varchar("code", { length: 4096 }),
     color: varchar("color", { length: 16 }),
     createdAt: timestamp("created_at", { withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)

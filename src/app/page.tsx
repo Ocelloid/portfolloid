@@ -2,9 +2,7 @@
 import Hero from "~/components/Hero";
 import Stack from "~/components/Stack";
 import Description from "~/components/Description";
-import Gallery from "~/components/Gallery";
-import Contact from "~/components/Contact";
-import Footer from "~/components/Footer";
+// import Gallery from "~/components/Gallery";
 import Preloader from "~/components/Preloader";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -31,8 +29,6 @@ export default function HomePage() {
       <Description />
       <Stack />
       {/* <Gallery /> */}
-      <Contact />
-      <Footer />
     </main>
   );
 }

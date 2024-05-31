@@ -8,7 +8,7 @@ import Footer from "./Footer";
 
 const navItems = [
   {
-    title: "Лендинг",
+    title: "Домой",
     href: "/",
   },
   {
@@ -19,10 +19,10 @@ const navItems = [
     title: "Технологии",
     href: "/stack",
   },
-  {
-    title: "Проекты",
-    href: "/pets",
-  },
+  // {
+  //   title: "Проекты",
+  //   href: "/pets",
+  // },
   {
     title: "Контакты",
     href: "/contact",
