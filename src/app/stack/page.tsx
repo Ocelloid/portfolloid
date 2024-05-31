@@ -11,15 +11,18 @@ import TechCard from "~/components/TechCard";
 import { Input } from "~/components/ui/input";
 import { FaSearch } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import Loading from "~/components/ui/Loading";
 
 export default function Stack() {
   const [search, setSearch] = useState("");
   const [stack, setStack] = useState<Tech[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getTechnologies();
       setStack(data);
+      setLoading(false);
     };
     void fetchData();
   }, []);
@@ -51,6 +54,7 @@ export default function Stack() {
           </AccordionItem>
         </Accordion> */}
         <div className="mt-4 columns-1 gap-6 lg:columns-2 2xl:columns-3">
+          {loading && <Loading />}
           {stack
             .filter((x: Tech) =>
               !!search
