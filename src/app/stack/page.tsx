@@ -12,9 +12,11 @@ import { Input } from "~/components/ui/input";
 import { FaSearch } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Loading from "~/components/ui/Loading";
+import { useSearchParams } from "next/navigation";
 
 export default function Stack() {
-  const [search, setSearch] = useState("");
+  const searchParams = useSearchParams();
+  const [search, setSearch] = useState(searchParams.get("s"));
   const [stack, setStack] = useState<Tech[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 

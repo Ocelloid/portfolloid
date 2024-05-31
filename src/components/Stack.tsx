@@ -1,12 +1,13 @@
 "use client";
 import { gsap } from "gsap";
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import { MdCircle } from "react-icons/md";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { Fragment } from "react";
-import stack from "./stack.json";
 import RoundedButton from "./ui/RoundedButton";
 import { useRouter } from "next/navigation";
+import { type Tech, getTechnologies } from "~/server/db/queries";
+import Loading from "~/components/ui/Loading";
 
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.addEventListener("refresh", function () {
@@ -18,38 +19,57 @@ ScrollTrigger.addEventListener("refresh", function () {
 export default function Stack() {
   const component = useRef(null);
   const router = useRouter();
+  const [stack, setStack] = useState<Tech[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  console.log("render");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getTechnologies();
+      setStack(data);
+      setLoading(false);
+    };
+    void fetchData();
+  }, []);
 
   useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: component.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 4,
-        },
-      });
+    const fetchData = async () => {
+      const data = await getTechnologies();
+      setStack(data);
+      setLoading(false);
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: component.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 4,
+          },
+        });
 
-      tl.fromTo(
-        ".tech-row",
-        {
-          x: (index) => {
-            return index % 2 === 0
-              ? gsap.utils.random(600, 400)
-              : gsap.utils.random(-600, -400);
+        tl.fromTo(
+          ".tech-row",
+          {
+            x: (index) => {
+              return index % 2 === 0
+                ? gsap.utils.random(600, 400)
+                : gsap.utils.random(-600, -400);
+            },
           },
-        },
-        {
-          x: (index) => {
-            return index % 2 === 0
-              ? gsap.utils.random(-600, -400)
-              : gsap.utils.random(600, 400);
+          {
+            x: (index) => {
+              return index % 2 === 0
+                ? gsap.utils.random(-600, -400)
+                : gsap.utils.random(600, 400);
+            },
+            ease: "power1.inOut",
           },
-          ease: "power1.inOut",
-        },
-      );
-    }, component);
-    return () => ctx.revert();
+        );
+      }, component);
+      return () => ctx.revert();
+    };
+    void fetchData();
   }, []);
 
   const reverseStack = [...stack].reverse();
@@ -68,21 +88,32 @@ export default function Stack() {
             <div
               key={i}
               className="tech-row mb-2 flex items-center justify-center gap-4 text-slate-700"
-              aria-label={tech.name || ""}
+              aria-label={tech.name ?? ""}
             >
+              {loading && <Loading />}
               {[...reverseStack, tech, ...stack].map((_, index) => (
                 <Fragment key={index}>
-                  <span
-                    className={
-                      "tech-item whitespace-nowrap text-2xl font-extrabold uppercase tracking-tighter"
-                    }
-                    style={{
-                      color:
-                        index === stack.length && _.color ? _.color : "inherit",
-                    }}
-                  >
-                    {_.name}
-                  </span>
+                  {index === stack.length ? (
+                    <a
+                      href={`/stack?s=${_.name}`}
+                      className={
+                        "tech-item whitespace-nowrap text-2xl font-extrabold uppercase tracking-tighter"
+                      }
+                      style={{
+                        color: _.color?.toString(),
+                      }}
+                    >
+                      {_.name}
+                    </a>
+                  ) : (
+                    <span
+                      className={
+                        "tech-item whitespace-nowrap text-2xl font-extrabold uppercase tracking-tighter"
+                      }
+                    >
+                      {_.name}
+                    </span>
+                  )}
                   <span className="text-xs">
                     <MdCircle />
                   </span>
