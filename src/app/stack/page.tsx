@@ -1,15 +1,28 @@
-import { getTechnologies } from "~/server/db/queries";
-import TechForm from "~/components/form/TechForm";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "~/components/ui/accordion";
+"use client";
+import { type Tech, getTechnologies } from "~/server/db/queries";
+// import TechForm from "~/components/form/TechForm";
+// import {
+//   Accordion,
+//   AccordionContent,
+//   AccordionItem,
+//   AccordionTrigger,
+// } from "~/components/ui/accordion";
 import TechCard from "~/components/TechCard";
+import { Input } from "~/components/ui/input";
+import { FaSearch } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
-export default async function Stack() {
-  const stack = await getTechnologies();
+export default function Stack() {
+  const [search, setSearch] = useState("");
+  const [stack, setStack] = useState<Tech[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await getTechnologies();
+      setStack(data);
+    };
+    void fetchData();
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -19,18 +32,36 @@ export default async function Stack() {
           Языки, фреймворки, библиотеки и инструменты, которые я использую в
           проектах.
         </p>
-        <Accordion type="single" collapsible>
+        <div className="relative ml-auto flex-1 md:grow-0">
+          <FaSearch className="absolute left-2.5 top-2.5 h-4 w-4" />
+          <Input
+            type="search"
+            placeholder="Поиск"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="border-b-1 mt-2 rounded-none border-x-0 border-t-0 border-b-slate-300 bg-transparent pl-8 focus:rounded-lg"
+          />
+        </div>
+        {/* <Accordion type="single" collapsible>
           <AccordionItem value="item-1">
             <AccordionTrigger>Добавить технологию</AccordionTrigger>
             <AccordionContent className="px-1">
               <TechForm />
             </AccordionContent>
           </AccordionItem>
-        </Accordion>
+        </Accordion> */}
         <div className="mt-4 columns-1 gap-6 lg:columns-2 2xl:columns-3">
-          {stack.map((data, index) => {
-            return <TechCard tech={data} key={index} />;
-          })}
+          {stack
+            .filter((x: Tech) =>
+              !!search
+                ? x.name
+                    ?.toLocaleLowerCase()
+                    .includes(search.toLocaleLowerCase())
+                : true,
+            )
+            .map((data, index) => {
+              return <TechCard tech={data} key={index} />;
+            })}
         </div>
       </div>
     </div>
