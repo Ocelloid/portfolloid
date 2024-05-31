@@ -23,44 +23,48 @@ export default function Stack() {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getTechnologies();
-      setStack(data);
-      setLoading(false);
-      console.log("data", data);
-      const ctx = gsap.context(() => {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: component.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 4,
-          },
-        });
+    getTechnologies()
+      .then((data) => {
+        setStack(data);
+        setLoading(false);
+        console.log("data", data);
+        setTimeout(() => {
+          const ctx = gsap.context(() => {
+            const tl = gsap.timeline({
+              scrollTrigger: {
+                trigger: component.current,
+                start: "top bottom",
+                end: "bottom top",
+                scrub: 4,
+              },
+            });
 
-        if (!!data.length)
-          tl.fromTo(
-            ".tech-row",
-            {
-              x: (index) => {
-                return index % 2 === 0
-                  ? gsap.utils.random(600, 400)
-                  : gsap.utils.random(-600, -400);
-              },
-            },
-            {
-              x: (index) => {
-                return index % 2 === 0
-                  ? gsap.utils.random(-600, -400)
-                  : gsap.utils.random(600, 400);
-              },
-              ease: "power1.inOut",
-            },
-          );
-      }, component);
-      return () => ctx.revert();
-    };
-    void fetchData();
+            if (!!data.length)
+              tl.fromTo(
+                ".tech-row",
+                {
+                  x: (index) => {
+                    return index % 2 === 0
+                      ? gsap.utils.random(600, 400)
+                      : gsap.utils.random(-600, -400);
+                  },
+                },
+                {
+                  x: (index) => {
+                    return index % 2 === 0
+                      ? gsap.utils.random(-600, -400)
+                      : gsap.utils.random(600, 400);
+                  },
+                  ease: "power1.inOut",
+                },
+              );
+          }, component);
+          return () => ctx.revert();
+        }, 100);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }, []);
 
   const reverseStack = [...stack].reverse();
