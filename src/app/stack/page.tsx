@@ -27,7 +27,8 @@ function Search({
 
   useEffect(() => {
     setSearch(searchParams.get("s") ?? "");
-  }, [searchParams]);
+    onChange(searchParams.get("s") ?? "");
+  }, [onChange, searchParams]);
 
   const handleSearchChange = (s: string) => {
     setSearch(s);
