@@ -12,9 +12,9 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-export const viewport: Viewport = {
-  userScalable: false,
-};
+// export const viewport: Viewport = {
+//   userScalable: false,
+// };
 
 export default function RootLayout({
   children,
