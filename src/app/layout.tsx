@@ -4,11 +4,19 @@ import { GeistSans } from "geist/font/sans";
 import GradientWrapper from "~/components/GradientWrapper";
 import Contact from "~/components/Contact";
 import Footer from "~/components/Footer";
+import { type Viewport } from "next";
 
 export const metadata = {
   title: "Никита Гребнев",
   description: "Сайт-резюме разработчика Frontend Никиты Гребнева",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  initialScale: 1,
+  width: "device-width",
+  maximumScale: 1,
 };
 
 export default function RootLayout({
