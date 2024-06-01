@@ -1,3 +1,4 @@
+"use client";
 import {
   RxVercelLogo,
   RxInstagramLogo,
@@ -6,7 +7,10 @@ import {
 } from "react-icons/rx";
 import { SlSocialVkontakte } from "react-icons/sl";
 import { LiaTelegram } from "react-icons/lia";
+import { usePathname } from "next/navigation";
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname === "/contact") return null;
   return (
     <div
       className="relative h-[160px] md:h-[80px]"
@@ -16,7 +20,7 @@ export default function Footer() {
         <div>
           <div className="flex shrink-0 flex-row justify-between md:flex-col">
             <div className="flex flex-col gap-2 md:flex-row">
-              <h3 className="min-w-44 uppercase text-[#ffffff80]">Работа</h3>
+              <h3 className="min-w-20 uppercase text-[#ffffff80]">Работа</h3>
               <a
                 href="https://github.com/ocelloid/"
                 target="_blank"
@@ -43,9 +47,7 @@ export default function Footer() {
               </a>
             </div>
             <div className="flex flex-col gap-2 md:flex-row">
-              <h3 className="min-w-44 uppercase text-[#ffffff80]">
-                Социальные сети
-              </h3>
+              <h3 className="min-w-20 uppercase text-[#ffffff80]">Соцсети</h3>
               <a
                 href="https://t.me/ocelloid"
                 target="_blank"
