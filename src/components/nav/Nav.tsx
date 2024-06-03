@@ -11,10 +11,10 @@ const navItems = [
     title: "Домой",
     href: "/",
   },
-  {
-    title: "Обо мне",
-    href: "/about",
-  },
+  // {
+  //   title: "Обо мне",
+  //   href: "/about",
+  // },
   {
     title: "Технологии",
     href: "/stack",
