@@ -91,7 +91,7 @@ export default function Stack() {
                     <a
                       href={`/stack?s=${_.name}`}
                       className={
-                        "tech-item whitespace-nowrap text-2xl font-extrabold uppercase tracking-tighter"
+                        "tech-item whitespace-nowrap text-lg font-extrabold uppercase tracking-tighter md:text-2xl"
                       }
                       style={{
                         color: _.color?.toString(),
@@ -102,7 +102,7 @@ export default function Stack() {
                   ) : (
                     <span
                       className={
-                        "tech-item whitespace-nowrap text-2xl font-extrabold uppercase tracking-tighter"
+                        "tech-item whitespace-nowrap text-lg font-extrabold uppercase tracking-tighter md:text-2xl"
                       }
                     >
                       {_.name}

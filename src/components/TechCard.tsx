@@ -55,7 +55,9 @@ export default function TechCard({ tech }: { tech: Tech }) {
           )}
         </div>
         {!!tech.code && <Code language="js">{tech.code}</Code>}
-        <p className="mt-2 whitespace-break-spaces text-sm">{tech.desc}</p>
+        <p className="mt-2 whitespace-break-spaces text-justify text-sm">
+          {tech.desc}
+        </p>
       </div>
     </motion.div>
   );
