@@ -5,6 +5,7 @@ import { menuSlide } from "~/components/animation";
 import NavLink from "./NavLink";
 import Curve from "./Curve";
 import Footer from "./Footer";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const navItems = [
   {
@@ -48,8 +49,18 @@ export default function Nav() {
           }}
           className="mt-20 flex flex-col gap-2 text-5xl "
         >
-          <div className="mb-10 border-b-2 border-b-slate-200 text-xs uppercase ">
+          <div className="mb-10 flex flex-row items-center justify-start gap-2 border-b-2 border-b-slate-200 text-xs uppercase">
             <p>Меню</p>
+            <SignedOut>
+              <div className="ml-auto block">
+                <SignInButton>Войти</SignInButton>
+              </div>
+            </SignedOut>
+            <SignedIn>
+              <div className="ml-auto block">
+                <UserButton />
+              </div>
+            </SignedIn>
           </div>
           {navItems.map((data, index) => {
             return (

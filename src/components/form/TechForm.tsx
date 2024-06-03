@@ -68,7 +68,6 @@ export default function TechForm({
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
-    console.log(data);
     if (!tech)
       createTechnology(data)
         .then(() => {
@@ -148,7 +147,6 @@ export default function TechForm({
                 background={form.watch("color")}
                 setBackground={(background) => {
                   form.setValue("color", background);
-                  console.log(form.getValues());
                 }}
               />
               <FormMessage />

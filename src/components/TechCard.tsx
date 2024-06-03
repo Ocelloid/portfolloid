@@ -1,24 +1,26 @@
 "use client";
 
 import { motion } from "framer-motion";
-// import TechDialog from "~/components/dialog/TechDialog";
-// import { type Tech, deleteTechnology } from "~/server/db/queries";
-import { type Tech } from "~/server/db/queries";
+import TechDialog from "~/components/dialog/TechDialog";
+import { type Tech, deleteTechnology } from "~/server/db/queries";
+import { useUser } from "@clerk/nextjs";
+// import { type Tech } from "~/server/db/queries";
 import Code from "~/components/Code";
-// import { FaTrash } from "react-icons/fa";
-// import { useRouter } from "next/navigation";
+import { FaTrash } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 export default function TechCard({ tech }: { tech: Tech }) {
-  // const router = useRouter();
-  // const handleTechDelete = async (id: number) => {
-  //   const confirmation = window.confirm(
-  //     "Вы уверены, что хотите удалить эту технологию?",
-  //   );
-  //   if (confirmation) {
-  //     await deleteTechnology(id);
-  //     router.refresh();
-  //   }
-  // };
+  const router = useRouter();
+  const { user } = useUser();
+  const handleTechDelete = async (id: number) => {
+    const confirmation = window.confirm(
+      "Вы уверены, что хотите удалить эту технологию?",
+    );
+    if (confirmation) {
+      await deleteTechnology(id);
+      router.refresh();
+    }
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -40,13 +42,17 @@ export default function TechCard({ tech }: { tech: Tech }) {
               {tech.name}
             </a>
           </p>
-          {/* <button
-          className="ml-auto mr-2"
-          onClick={() => handleTechDelete(Number(tech.id))}
-        >
-          <FaTrash className="text-red-500" />
-        </button>
-        <TechDialog data={tech} /> */}
+          {user?.id === "user_2hO3y89tdym40T8WxVzfGn2Q06h" && (
+            <>
+              <button
+                className="ml-auto mr-2"
+                onClick={() => handleTechDelete(Number(tech.id))}
+              >
+                <FaTrash className="text-red-500" />
+              </button>
+              <TechDialog data={tech} />
+            </>
+          )}
         </div>
         {!!tech.code && <Code language="js">{tech.code}</Code>}
         <p className="mt-2 whitespace-break-spaces text-sm">{tech.desc}</p>

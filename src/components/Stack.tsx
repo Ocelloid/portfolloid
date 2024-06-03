@@ -27,7 +27,6 @@ export default function Stack() {
       .then((data) => {
         setStack(data);
         setLoading(false);
-        console.log("data", data);
         setTimeout(() => {
           const ctx = gsap.context(() => {
             const tl = gsap.timeline({

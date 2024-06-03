@@ -1,12 +1,12 @@
 "use client";
 import { type Tech, getTechnologies } from "~/server/db/queries";
-// import TechForm from "~/components/form/TechForm";
-// import {
-//   Accordion,
-//   AccordionContent,
-//   AccordionItem,
-//   AccordionTrigger,
-// } from "~/components/ui/accordion";
+import TechForm from "~/components/form/TechForm";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "~/components/ui/accordion";
 import TechCard from "~/components/TechCard";
 import { Input } from "~/components/ui/input";
 import { FaSearch } from "react-icons/fa";
@@ -14,6 +14,7 @@ import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import Loading from "~/components/ui/Loading";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { useUser } from "@clerk/nextjs";
 
 function Search({
   val,
@@ -51,6 +52,7 @@ function Search({
 }
 
 export default function Stack() {
+  const { user } = useUser();
   const [search, setSearch] = useState("");
   const [stack, setStack] = useState<Tech[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -75,14 +77,17 @@ export default function Stack() {
         <Suspense>
           <Search val={search} onChange={(e) => setSearch(e)} />
         </Suspense>
-        {/* <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger>Добавить технологию</AccordionTrigger>
-            <AccordionContent className="px-1">
-              <TechForm />
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion> */}
+
+        {user?.id === "user_2hO3y89tdym40T8WxVzfGn2Q06h" && (
+          <Accordion type="single" collapsible>
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Добавить технологию</AccordionTrigger>
+              <AccordionContent className="px-1">
+                <TechForm />
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        )}
         <div className="mt-4 columns-1 gap-6 lg:columns-2 2xl:columns-3">
           {loading && <Loading />}
           {stack

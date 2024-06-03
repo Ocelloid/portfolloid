@@ -5,6 +5,7 @@ import GradientWrapper from "~/components/GradientWrapper";
 import Contact from "~/components/Contact";
 import Footer from "~/components/Footer";
 import { type Viewport } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 
 export const metadata = {
   title: "Никита Гребнев",
@@ -22,15 +23,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body>
-        <GradientWrapper>
-          <Header />
-          {children}
-          <Contact />
-          <Footer />
-        </GradientWrapper>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" className={`${GeistSans.variable}`}>
+        <body>
+          <GradientWrapper>
+            <Header />
+            {children}
+            <Contact />
+            <Footer />
+          </GradientWrapper>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
