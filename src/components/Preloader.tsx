@@ -48,7 +48,7 @@ export default function Preloader() {
             initial="initial"
             animate="enter"
           >
-            <span className="mr-2.5 block h-2.5 w-2.5 rounded-full bg-white" />
+            {/* <span className="mr-2.5 block h-2.5 w-2.5 rounded-full bg-white" /> */}
             {words[index]}
           </motion.p>
         </>
