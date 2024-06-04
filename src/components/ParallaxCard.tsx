@@ -77,7 +77,7 @@ export default function Card({
             </span>
           </div>
 
-          <div className="relative h-full w-full overflow-hidden rounded-xl">
+          <div className="relative h-full w-full min-w-[200px] overflow-hidden rounded-xl md:max-w-[420px]">
             <motion.div className="h-full w-full" style={{ scale: imageScale }}>
               <Image
                 fill
