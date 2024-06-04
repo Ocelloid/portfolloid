@@ -6,6 +6,7 @@ import {
   motion,
   type MotionValue,
 } from "framer-motion";
+import { FaLink, FaGithub } from "react-icons/fa";
 import { useRef } from "react";
 
 export default function Card({
@@ -54,27 +55,22 @@ export default function Card({
         <div className="relative flex h-full flex-col gap-4 md:flex-row md:gap-12">
           <div className="flex flex-col">
             <p className="text-lg [&::first-letter]:text-3xl">{description}</p>
-
-            <span className="mt-4 flex items-center gap-2 text-xs">
-              Ссылка:&nbsp;
-              <a
-                href={link}
-                target="_blank"
-                className="cursor-pointer underline"
-              >
-                {link}
-              </a>
-            </span>
-            <span className="flex items-center gap-2 text-xs">
-              Репозиторий:&nbsp;
-              <a
-                href={repo}
-                target="_blank"
-                className="cursor-pointer underline"
-              >
-                {repo}
-              </a>
-            </span>
+            <a
+              href={link}
+              target="_blank"
+              className="mt-4 flex cursor-pointer items-center gap-2 md:mt-auto"
+            >
+              <FaLink />
+              {link}
+            </a>
+            <a
+              href={repo}
+              target="_blank"
+              className="flex cursor-pointer items-center gap-2"
+            >
+              <FaGithub />
+              {repo}
+            </a>
           </div>
 
           <div className="relative h-full w-full min-w-[200px] overflow-hidden rounded-xl md:max-w-[420px]">
