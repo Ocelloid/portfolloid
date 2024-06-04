@@ -39,7 +39,7 @@ export default function Card({
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div className="sticky top-40 flex h-[85vh] items-start justify-center md:top-52 md:h-[42vh]">
+    <div className="sticky top-40 flex h-[85vh] items-start justify-center md:top-[200px] md:h-[42vh]">
       <motion.div
         className="relative my-10 flex h-[800px] w-full origin-top flex-col rounded-xl p-4 md:h-96 md:p-12"
         style={{
@@ -48,8 +48,8 @@ export default function Card({
           top: `calc(-5vh + ${i * 25}px)`,
         }}
       >
-        <h2 className="m-0 text-center text-3xl">{title}</h2>
-        <div className="flex h-full flex-col gap-4 md:flex-row md:gap-12">
+        <h2 className="m-0 mb-2 text-center text-3xl">{title}</h2>
+        <div className="relative flex h-full flex-col gap-4 md:flex-row md:gap-12">
           <div className="flex flex-col">
             <p className="text-lg [&::first-letter]:text-3xl">{description}</p>
 
@@ -77,7 +77,7 @@ export default function Card({
             </span>
           </div>
 
-          <div className="relative h-full w-full overflow-hidden rounded-3xl">
+          <div className="relative h-full w-full overflow-hidden rounded-xl">
             <motion.div className="h-full w-full" style={{ scale: imageScale }}>
               <Image
                 fill
