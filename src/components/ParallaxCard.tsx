@@ -1,5 +1,12 @@
 "use client";
 import Image from "next/image";
+import {
+  useTransform,
+  useScroll,
+  motion,
+  type MotionValue,
+} from "framer-motion";
+import { useRef } from "react";
 
 export default function Card({
   title,
@@ -8,6 +15,9 @@ export default function Card({
   link,
   color,
   i,
+  progress,
+  range,
+  targetScale,
 }: {
   title: string;
   description: string;
@@ -15,17 +25,32 @@ export default function Card({
   link: string;
   color: string;
   i: number;
+  progress: MotionValue<number>;
+  range: number[];
+  targetScale: number;
 }) {
+  const container = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "start start"],
+  });
+  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
+  const scale = useTransform(progress, range, [1, targetScale]);
+
   return (
-    <div className="sticky top-[16rem] flex h-[100vh] items-start justify-center md:h-[50vh]">
-      <div
-        className="relative flex min-h-96 w-full origin-top flex-col rounded-3xl p-12"
-        style={{ backgroundColor: color, top: `calc(-5vh + ${i * 25}px)` }}
+    <div className="sticky top-40 flex h-[85vh] items-start justify-center md:top-52 md:h-[42vh]">
+      <motion.div
+        className="relative my-10 flex h-[800px] w-full origin-top flex-col rounded-xl p-4 md:h-96 md:p-12"
+        style={{
+          backgroundColor: color,
+          scale,
+          top: `calc(-5vh + ${i * 25}px)`,
+        }}
       >
         <h2 className="m-0 text-center text-3xl">{title}</h2>
-
-        <div className="mt-12 flex h-full gap-12">
-          <div className="relative top-[10%] w-2/5">
+        <div className="flex h-full flex-col gap-4 md:flex-row md:gap-12">
+          <div className="flex flex-col">
             <p className="text-lg [&::first-letter]:text-3xl">{description}</p>
 
             <span className="flex items-center gap-2">
@@ -52,18 +77,18 @@ export default function Card({
             </span>
           </div>
 
-          <div className="relative h-full w-3/5 overflow-hidden rounded-3xl">
-            <div className="h-full w-full">
+          <div className="relative h-full w-full overflow-hidden rounded-3xl">
+            <motion.div className="h-full w-full" style={{ scale: imageScale }}>
               <Image
                 fill
                 src={`/images/${src}`}
                 alt="image"
                 style={{ objectFit: "cover" }}
               />
-            </div>
+            </motion.div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
