@@ -1,26 +1,29 @@
 export const projects = [
   {
-    title: "Matthias Leidinger",
+    title: "Portfolloid",
     description:
-      "Originally hailing from Austria, Berlin-based photographer Matthias Leindinger is a young creative brimming with talent and ideas.",
-    src: "rock.jpg",
-    link: "https://www.ignant.com/2023/03/25/ad2186-matthias-leidingers-photographic-exploration-of-awe-and-wonder/",
-    color: "#BBACAF",
+      "Сайт-визитка, сайт-портфолио, сайт-песочница, в которой я строю свои замки и леплю свои куличики. Его репозиторий на GitHub публичный, как и у других проектов здесь, а размещён он на Vercel.",
+    src: "portfolloid.png",
+    link: "https://ocelloid.com/",
+    repo: "https://github.com/ocelloid/portfolloid",
+    color: "#020617",
   },
   {
-    title: "Clément Chapillon",
+    title: "Libra",
     description:
-      "This is a story on the border between reality and imaginary, about the contradictory feelings that the insularity of a rocky, arid, and wild territory provokes”—so French photographer Clément Chapillon describes his latest highly captivating project Les rochers fauves (French for ‘The tawny rocks’).",
-    src: "tree.jpeg",
-    link: "https://www.ignant.com/2022/09/30/clement-chapillon-questions-geographical-and-mental-isolation-with-les-rochers-fauves/",
-    color: "#977F6D",
+      "Сайт-органайзер для совместной работы и обсуждения проектов. Нацелен на то, чтобы сотрудники могли быстро и эффективно создавать подзадачи, определять их приоритеты и следить за их выполнением.",
+    src: "libra.png",
+    link: "https://libra.ocelloid.com/",
+    repo: "https://github.com/ocelloid/libra",
+    color: "#3b5995",
   },
   {
-    title: "Zissou",
+    title: "Маскарад Вампиров",
     description:
-      "Though he views photography as a medium for storytelling, Zissou’s images don’t insist on a narrative. Both crisp and ethereal, they’re encoded with an ambiguity—a certain tension—that lets the viewer find their own story within them.",
-    src: "water.jpg",
-    link: "https://www.ignant.com/2023/10/28/capturing-balis-many-faces-zissou-documents-the-sacred-and-the-mundane-of-a-fragile-island/",
-    color: "#C2491D",
+      "Сайт для городской ролевой игры Маскарад Вампиров, на котором можно играть, создавать истории и персонажей, получать информацию о происходящих событиях, закупаться симпатичным мерчем.",
+    src: "vtmsu.png",
+    link: "https://vtm.su/",
+    repo: "https://github.com/ocelloid/vtmsu",
+    color: "#dc2626",
   },
 ];
