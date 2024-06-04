@@ -68,11 +68,11 @@ export default function ContactPage() {
               <Magnet pull={0.1}>
                 <div>
                   <a
-                    href="https://www.linkedin.com/in/nikita-grebnev-b9a2a413b/"
+                    href="https://perm.hh.ru/resume/95971ef6ff0d093c280039ed1f5a4262464954"
                     target="_blank"
                     className="text-lg text-white"
                   >
-                    LinkedIn
+                    HeadHunter
                   </a>
                 </div>
               </Magnet>
