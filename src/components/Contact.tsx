@@ -51,7 +51,7 @@ export default function Contact() {
             className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-6 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
           >
             <p className="relative z-[2] m-0 text-center font-semibold">
-              +7 (995) 857-84-00
+              +7 (995) 857-80-04
             </p>
           </RoundedButton>
         </div>
