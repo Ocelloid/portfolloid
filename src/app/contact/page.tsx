@@ -47,7 +47,7 @@ export default function ContactPage() {
                     target="_blank"
                     className="text-lg text-white"
                   >
-                    +7 (995) 857-84-00
+                    +7 (995) 857-80-04
                   </a>
                 </div>
               </Magnet>
