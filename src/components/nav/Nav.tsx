@@ -20,10 +20,10 @@ const navItems = [
     title: "Технологии",
     href: "/stack",
   },
-  // {
-  //   title: "Проекты",
-  //   href: "/pets",
-  // },
+  {
+    title: "Проекты",
+    href: "/pets",
+  },
   {
     title: "Контакты",
     href: "/contact",

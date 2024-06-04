@@ -8,7 +8,7 @@ export default function Contact() {
   const pathname = usePathname();
   if (pathname === "/contact") return null;
   return (
-    <div className="relative flex flex-col items-center justify-center text-white">
+    <div className="relative flex flex-col items-center justify-center overflow-hidden text-white">
       <div className="w-full max-w-7xl pt-6">
         <div className="relative mx-4 border-b border-white/10">
           <span className="mb-4 flex items-center">

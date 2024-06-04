@@ -25,7 +25,7 @@ export default function GradientWrapper({
   }, []);
   return (
     <div onMouseMove={handleMouseMove}>
-      <div className="group flex flex-col overflow-hidden bg-gradient-to-b from-slate-700 to-slate-950 text-white">
+      <div className="group flex flex-col bg-gradient-to-b from-slate-700 to-slate-950 text-white">
         <motion.div
           className="transtition fixed inset-0 opacity-0 duration-500 group-hover:opacity-100"
           style={{

@@ -58,7 +58,7 @@ export default function Hero() {
 
   return (
     <>
-      <div className="relative h-screen">
+      <div className="relative h-screen overflow-x-hidden">
         <Image
           fill={true}
           priority={true}
