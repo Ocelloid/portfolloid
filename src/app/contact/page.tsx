@@ -87,6 +87,17 @@ export default function ContactPage() {
                   </a>
                 </div>
               </Magnet>
+              <Magnet pull={0.1}>
+                <div>
+              <a
+                href="https://career.habr.com/ocelloid"
+                target="_blank"
+                className="text-lg text-white"
+              >
+                Habr
+              </a>
+                  </div>
+                </Magnet>
             </div>
             <div className="col-span-2 ml-2">
               <p className="mt-5 text-lg uppercase text-white/50">
