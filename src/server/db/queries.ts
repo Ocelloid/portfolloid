@@ -4,11 +4,12 @@ import { inquiries, technologies } from "./schema";
 import { asc, eq } from "drizzle-orm";
 
 export interface Inquiry {
-  username: string;
-  email: string;
-  organization?: string | undefined;
-  services?: string | undefined;
-  message: string;
+  id?: number | null;
+  username: string | null;
+  email: string | null;
+  organization?: string | null;
+  services?: string | null;
+  message: string | null;
 }
 export interface Tech {
   id?: number | null;
@@ -28,6 +29,10 @@ export async function sendInquiry(inquiry: Inquiry) {
     services: inquiry.services,
     message: inquiry.message,
   });
+}
+
+export async function getInquiries() {
+  return db.query.inquiries.findMany();
 }
 
 export async function createTechnology(technology: Tech) {
