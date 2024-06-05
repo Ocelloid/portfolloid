@@ -44,7 +44,7 @@ export default function Card({
   return (
     <div className="sticky top-40 flex h-[110vh] items-start justify-center md:top-[200px] md:h-[42vh]">
       <motion.div
-        className="relative my-10 flex h-[800px] w-full origin-top flex-col rounded-xl p-6 md:h-96 md:p-12"
+        className="relative my-10 flex h-[500px] md:h-[800px] w-full origin-top flex-col rounded-xl p-6 md:h-96 md:p-12"
         style={{
           backgroundColor: color,
           scale,
@@ -73,7 +73,7 @@ export default function Card({
             </a>
           </div>
 
-          <div className="relative h-[110px] md:h-full w-full min-w-[200px] overflow-hidden rounded-xl md:max-w-[420px]">
+          <div className="relative h-[180px] md:h-full w-full min-w-[200px] overflow-hidden rounded-xl md:max-w-[420px]">
             <motion.div className="h-full w-full" style={{ scale: imageScale }}>
               <Image
                 fill
