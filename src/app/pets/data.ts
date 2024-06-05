@@ -7,7 +7,7 @@ export const projects = [
     link: "https://ocelloid.com/",
     icon: "/images/favicon.png",
     repo: "https://github.com/ocelloid/portfolloid",
-    color: "#475569",
+    color: "#475569bf",
     stack: [
       "next.js",
       "tailwind",

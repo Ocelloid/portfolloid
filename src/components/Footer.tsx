@@ -18,7 +18,7 @@ export default function Footer() {
       className="relative h-[180px] md:h-[80px]"
       style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
     >
-      <div className="fixed bottom-0 flex h-[180px] w-full flex-col justify-between bg-slate-600 px-12 py-4 md:h-[80px]">
+      <div className="fixed bottom-0 flex h-[180px] w-full flex-col justify-between bg-slate-600/75 px-12 py-4 md:h-[80px]">
         <div>
           <div className="flex shrink-0 flex-row justify-between md:flex-col">
             <div className="flex flex-col gap-2 md:flex-row">

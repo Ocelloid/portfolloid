@@ -9,7 +9,7 @@ export default function RoundedButton({
     return null;
   },
   backgroundColor = "#455CE9aa",
-  pull = 0.35,
+  pull = 0.25,
   className = "border-1 relative flex cursor-pointer items-center justify-center rounded-full border-slate-500 px-4 py-40",
 }: {
   children: React.ReactNode;
