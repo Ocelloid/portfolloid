@@ -89,16 +89,26 @@ export default function Card({
               {repo}
             </a>
             {!!techs && (
-              <div className="mt-1 flex flex-row items-center gap-0.5 align-middle">
-                {techs.map((tech) => (
+              <div className="mt-1 flex min-h-5 flex-row items-center gap-0.5 align-middle">
+                {techs.map((tech, index) => (
                   <Magnet pull={0.25} key={`icon_${tech.name}`}>
                     <a href={`/stack?s=${tech.name}`} target="_blank">
-                      <Image
-                        src={tech.icon ?? ""}
-                        alt="icon"
-                        width={16}
-                        height={16}
-                      />
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                          ease: "easeInOut",
+                          duration: index / 5,
+                        }}
+                        className="z-10"
+                      >
+                        <Image
+                          src={tech.icon ?? ""}
+                          alt="icon"
+                          width={16}
+                          height={16}
+                        />
+                      </motion.div>
                     </a>
                   </Magnet>
                 ))}
