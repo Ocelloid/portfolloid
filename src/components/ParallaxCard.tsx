@@ -42,9 +42,9 @@ export default function Card({
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
-    <div className="sticky top-40 flex h-[110vh] items-start justify-center md:top-[200px] md:h-[42vh]">
+    <div className="sticky top-40 flex h-[80vh] items-start justify-center md:top-[200px] md:h-[42vh]">
       <motion.div
-        className="relative my-10 flex h-[500px] md:h-[800px] w-full origin-top flex-col rounded-xl p-6 md:h-96 md:p-12"
+        className="relative my-10 flex h-[560px] md:h-[800px] w-full origin-top flex-col rounded-xl p-6 md:h-96 md:p-12"
         style={{
           backgroundColor: color,
           scale,
