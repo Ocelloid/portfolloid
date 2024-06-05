@@ -36,6 +36,7 @@ const FormSchema = z.object({
       message: "Хотя бы пару символов, пожалуйста",
     })
     .max(256, { message: "Не больше 256 символов, пожалуйста" }),
+  icon: z.string().max(256, { message: "Не больше 256 символов, пожалуйста" }),
   code: z
     .string()
     .max(4096, { message: "Не больше 4096 символов, пожалуйста" }),
@@ -60,6 +61,7 @@ export default function TechForm({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       name: tech?.name ?? "",
+      icon: tech?.icon ?? "",
       link: tech?.link ?? "",
       code: tech?.code ?? "",
       desc: tech?.desc ?? "",
@@ -99,13 +101,13 @@ export default function TechForm({
       <Toaster />
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="text-default grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-6"
+        className="text-default grid grid-cols-2 gap-2 md:grid-cols-4 md:gap-6"
       >
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
-            <FormItem className="col-span-3 md:col-span-1">
+            <FormItem className="col-span-4 md:col-span-1">
               <FormLabel>Название</FormLabel>
               <FormControl>
                 <Input
@@ -123,7 +125,7 @@ export default function TechForm({
           control={form.control}
           name="link"
           render={({ field }) => (
-            <FormItem className="col-span-1">
+            <FormItem className="col-span-4 md:col-span-1">
               <FormLabel>Ссылка</FormLabel>
               <FormControl>
                 <Input
@@ -138,9 +140,26 @@ export default function TechForm({
         />
         <FormField
           control={form.control}
+          name="icon"
+          render={({ field }) => (
+            <FormItem className="col-span-4 md:col-span-1">
+              <FormLabel>Иконка</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Ссылка на иконку"
+                  {...field}
+                  className="border-b-1 rounded-none border-x-0 border-t-0 border-b-slate-300 bg-transparent focus:rounded-lg"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
           name="color"
           render={() => (
-            <FormItem className="col-span-1">
+            <FormItem className="col-span-4 md:col-span-1">
               <FormLabel>Цвет</FormLabel>
               <ColorPicker
                 className="w-full truncate bg-transparent"
@@ -157,7 +176,7 @@ export default function TechForm({
           control={form.control}
           name="desc"
           render={({ field }) => (
-            <FormItem className="col-span-3">
+            <FormItem className="col-span-4 md:col-span-2">
               <FormLabel>Описание</FormLabel>
               <FormControl>
                 <Textarea
@@ -175,7 +194,7 @@ export default function TechForm({
           control={form.control}
           name="code"
           render={({ field }) => (
-            <FormItem className="col-span-3">
+            <FormItem className="col-span-4 md:col-span-2">
               <FormLabel>Код</FormLabel>
               <FormControl>
                 <Textarea
@@ -192,7 +211,7 @@ export default function TechForm({
         <Button
           variant="outline"
           type="submit"
-          className="col-span-3 bg-transparent"
+          className="col-span-4 bg-transparent"
         >
           Отправить
         </Button>

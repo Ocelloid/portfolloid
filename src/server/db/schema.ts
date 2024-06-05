@@ -43,6 +43,7 @@ export const technologies = createTable(
     id: serial("id").primaryKey(),
     name: varchar("name", { length: 256 }),
     link: varchar("link", { length: 256 }),
+    icon: varchar("icon", { length: 256 }),
     desc: varchar("desc", { length: 4096 }),
     code: varchar("code", { length: 4096 }),
     color: varchar("color", { length: 16 }),

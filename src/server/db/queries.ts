@@ -1,7 +1,7 @@
 "use server";
 import { db } from "~/server/db";
 import { inquiries, technologies } from "./schema";
-import { eq } from "drizzle-orm";
+import { asc, eq } from "drizzle-orm";
 
 export interface Inquiry {
   username: string;
@@ -13,6 +13,7 @@ export interface Inquiry {
 export interface Tech {
   id?: number | null;
   name: string | null;
+  icon: string | null;
   link: string | null;
   desc: string | null;
   code: string | null;
@@ -32,6 +33,7 @@ export async function sendInquiry(inquiry: Inquiry) {
 export async function createTechnology(technology: Tech) {
   await db.insert(technologies).values({
     name: technology.name,
+    icon: technology.icon,
     link: technology.link,
     desc: technology.desc,
     code: technology.code,
@@ -44,6 +46,7 @@ export async function updateTechnology(id: number, technology: Tech) {
     .update(technologies)
     .set({
       name: technology.name,
+      icon: technology.icon,
       link: technology.link,
       desc: technology.desc,
       code: technology.code,
@@ -57,6 +60,7 @@ export async function deleteTechnology(id: number) {
 }
 
 export async function getTechnologies() {
-  const technologies = await db.query.technologies.findMany();
-  return technologies;
+  return await db.query.technologies.findMany({
+    orderBy: [asc(technologies.updatedAt)],
+  });
 }

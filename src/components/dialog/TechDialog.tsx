@@ -19,7 +19,7 @@ export default function TechDialog({ data }: { data: Tech }) {
       <DialogTrigger>
         <FaPencilAlt />
       </DialogTrigger>
-      <DialogContent className="max-w-3xl bg-slate-900/90 text-white">
+      <DialogContent className="max-w-5xl bg-slate-900/90 text-white">
         <DialogHeader>
           <DialogTitle>
             Редактировать технологию &quot;{data.name}&quot;

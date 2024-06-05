@@ -6,8 +6,9 @@ import { type Tech, deleteTechnology } from "~/server/db/queries";
 import { useUser } from "@clerk/nextjs";
 // import { type Tech } from "~/server/db/queries";
 import Code from "~/components/Code";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaCog } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function TechCard({ tech }: { tech: Tech }) {
   const router = useRouter();
@@ -32,13 +33,24 @@ export default function TechCard({ tech }: { tech: Tech }) {
         className={`mb-4 flex break-inside-avoid flex-col rounded-2xl p-4 duration-300 hover:brightness-150`}
         style={{ backgroundColor: tech.color + "80" }}
       >
-        <div className="flex flex-row">
-          <p className="text-lg">
+        <div className="align-center flex flex-row text-center">
+          <p className="align-center flex text-lg">
             <a
               href={tech.link?.toString()}
               target="_blank"
-              className="font-bold"
+              className="align-center flex flex-row justify-center text-center font-bold"
             >
+              {!tech.icon ? (
+                <FaCog className="p-1 text-3xl text-slate-300" />
+              ) : (
+                <Image
+                  alt="tech icon"
+                  src={tech.icon}
+                  width={16}
+                  height={16}
+                  className="min-h-4 min-w-8 p-1.5"
+                />
+              )}
               {tech.name}
             </a>
           </p>
