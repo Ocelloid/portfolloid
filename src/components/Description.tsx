@@ -13,8 +13,8 @@ export default function Description() {
   const router = useRouter();
   return (
     <div ref={description} className="my-16 flex flex-wrap justify-center px-8">
-      <div className="relative grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-3">
-        <p className="col-span-2 m-0 gap-2 text-4xl">
+      <div className="relative grid max-w-7xl grid-cols-1 md:grid-cols-3 md:gap-12">
+        <p className="col-span-2 m-0 mb-2 gap-2 text-4xl">
           {phrase.split(" ").map((word, index) => {
             return (
               <span
