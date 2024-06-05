@@ -163,7 +163,7 @@ export default function ContactForm() {
             </FormItem>
           )}
         />
-        <Magnet>
+        <Magnet pull={0.05}>
           <Button type="submit">Отправить</Button>
         </Magnet>
       </form>

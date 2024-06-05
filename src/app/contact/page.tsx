@@ -6,7 +6,7 @@ import ContactForm from "~/components/form/ContactForm";
 export default function ContactPage() {
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="container mx-auto p-4 md:p-20 ">
+      <div className="container mx-auto p-4 pb-10 md:p-20">
         <div className="grid grid-cols-1 md:grid-cols-3">
           <div className="col-span-2 flex flex-col">
             <p className="ml-2 py-6 text-5xl">Давайте поработаем</p>
@@ -29,7 +29,7 @@ export default function ContactPage() {
               <p className="mt-5 text-lg uppercase text-white/50">
                 Связаться со мной
               </p>
-              <Magnet pull={0.1}>
+              <Magnet pull={0.02}>
                 <div>
                   <a
                     href="mailto:ocelloid@gmail.com"
@@ -40,7 +40,7 @@ export default function ContactPage() {
                   </a>
                 </div>
               </Magnet>
-              <Magnet pull={0.1}>
+              <Magnet pull={0.02}>
                 <div>
                   <a
                     href={`tel:+79958578004`}
@@ -54,7 +54,7 @@ export default function ContactPage() {
             </div>
             <div className="col-span-1 ml-2">
               <p className="mt-5 text-lg uppercase text-white/50">Работа</p>
-              <Magnet pull={0.1}>
+              <Magnet pull={0.02}>
                 <div>
                   <a
                     href="https://github.com/ocelloid/"
@@ -65,7 +65,7 @@ export default function ContactPage() {
                   </a>
                 </div>
               </Magnet>
-              <Magnet pull={0.1}>
+              <Magnet pull={0.02}>
                 <div>
                   <a
                     href="https://perm.hh.ru/resume/95971ef6ff0d093c280039ed1f5a4262464954"
@@ -76,7 +76,7 @@ export default function ContactPage() {
                   </a>
                 </div>
               </Magnet>
-              <Magnet pull={0.1}>
+              <Magnet pull={0.02}>
                 <div>
                   <a
                     href="https://vercel.com/ocelloids-projects"
@@ -87,23 +87,23 @@ export default function ContactPage() {
                   </a>
                 </div>
               </Magnet>
-              <Magnet pull={0.1}>
+              <Magnet pull={0.02}>
                 <div>
-              <a
-                href="https://career.habr.com/ocelloid"
-                target="_blank"
-                className="text-lg text-white"
-              >
-                Habr
-              </a>
-                  </div>
-                </Magnet>
+                  <a
+                    href="https://career.habr.com/ocelloid"
+                    target="_blank"
+                    className="text-lg text-white"
+                  >
+                    Habr
+                  </a>
+                </div>
+              </Magnet>
             </div>
             <div className="col-span-2 ml-2">
               <p className="mt-5 text-lg uppercase text-white/50">
                 Социальные сети
               </p>
-              <Magnet pull={0.1}>
+              <Magnet pull={0.02}>
                 <div>
                   <a
                     href="https://t.me/ocelloid"
@@ -114,7 +114,7 @@ export default function ContactPage() {
                   </a>
                 </div>
               </Magnet>
-              <Magnet pull={0.1}>
+              <Magnet pull={0.02}>
                 <div>
                   <a
                     href="https://vk.com/ocelloid"
@@ -125,7 +125,7 @@ export default function ContactPage() {
                   </a>
                 </div>
               </Magnet>
-              <Magnet pull={0.1}>
+              <Magnet pull={0.02}>
                 <div>
                   <a
                     href="https://www.instagram.com/lateral_move"
