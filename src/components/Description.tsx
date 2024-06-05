@@ -47,7 +47,7 @@ export default function Description() {
             onClick={() => {
               router.push("/pets");
             }}
-            className="absolute right-4 top-[50%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-950/75 px-4 py-11 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
+            className="absolute right-4 top-[50%] flex w-[6.5rem] cursor-pointer items-center justify-center rounded-full bg-slate-600 py-10 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
           >
             <p className="relative z-[1] m-0 font-semibold">Проекты</p>
           </RoundedButton>

@@ -30,7 +30,7 @@ export default function Contact() {
             onClick={() => {
               void router.push("/contact");
             }}
-            className="absolute right-4 top-[50%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-950/75 px-4 py-8 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
+            className="absolute right-4 top-[50%] flex w-28 cursor-pointer items-center justify-center rounded-full bg-slate-600 px-4 py-8 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
           >
             <p className="relative z-[2] m-0 text-center font-semibold">
               Написать мне
@@ -40,7 +40,7 @@ export default function Contact() {
         <div className="m-12 flex flex-col gap-5 pt-4 md:flex-row">
           <RoundedButton
             onClick={() => (window.location.href = "mailto:ocelloid@gmail.com")}
-            className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-6 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
+            className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-600 px-4 py-6 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
           >
             <p className="relative z-[2] m-0 text-center font-semibold">
               ocelloid@gmail.com
@@ -48,7 +48,7 @@ export default function Contact() {
           </RoundedButton>
           <RoundedButton
             onClick={() => (window.location.href = "tel:+79958578004")}
-            className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-950/50 px-4 py-6 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
+            className="flex h-0 cursor-pointer items-center justify-center rounded-3xl bg-slate-600 px-4 py-6 text-white outline-none outline outline-2  outline-offset-2 hover:outline-blue-500 md:right-40"
           >
             <p className="relative z-[2] m-0 text-center font-semibold">
               +7 (995) 857-80-04
