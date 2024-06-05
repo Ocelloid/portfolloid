@@ -54,7 +54,7 @@ export default function Card({
         <h2 className="m-0 mb-2 text-center text-3xl">{title}</h2>
         <div className="relative flex h-full flex-col gap-4 md:flex-row md:gap-12">
           <div className="flex flex-col">
-            <p className="text-lg [&::first-letter]:text-3xl">{description}</p>
+            <p className="text-lg text-justify [&::first-letter]:text-3xl">{description}</p>
             <a
               href={link}
               target="_blank"
@@ -73,7 +73,7 @@ export default function Card({
             </a>
           </div>
 
-          <div className="relative h-full w-full min-w-[200px] overflow-hidden rounded-xl md:max-w-[420px]">
+          <div className="relative h-[110px] md:h-full w-full min-w-[200px] overflow-hidden rounded-xl md:max-w-[420px]">
             <motion.div className="h-full w-full" style={{ scale: imageScale }}>
               <Image
                 fill
