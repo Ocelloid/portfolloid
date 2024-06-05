@@ -2,14 +2,20 @@
 import { projects } from "./data";
 import Card from "~/components/ParallaxCard";
 import { useScroll } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { type Tech, getTechnologies } from "~/server/db/queries";
 
 export default function Pets() {
+  const [technologies, setTechnologies] = useState<Tech[]>([]);
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start start", "end end"],
   });
+
+  useEffect(() => {
+    void getTechnologies().then((techs) => setTechnologies(techs));
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -29,6 +35,11 @@ export default function Pets() {
               range={[i * 0.25, 1]}
               targetScale={targetScale}
               {...project}
+              techs={technologies.filter((tech) =>
+                project.stack
+                  .map((t) => t.toLowerCase().replace(" ", ""))
+                  .includes(tech.name?.toLowerCase().replace(" ", "") ?? ""),
+              )}
               i={i}
             />
           );

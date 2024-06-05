@@ -8,11 +8,14 @@ import {
 } from "framer-motion";
 import { FaLink, FaGithub } from "react-icons/fa";
 import { useRef } from "react";
+import Magnet from "~/components/ui/Magnet";
+import { type Tech } from "~/server/db/queries";
 
 export default function Card({
   title,
   description,
   src,
+  icon,
   link,
   repo,
   color,
@@ -20,10 +23,12 @@ export default function Card({
   progress,
   range,
   targetScale,
+  techs,
 }: {
   title: string;
   description: string;
   src: string;
+  icon: string;
   link: string;
   repo: string;
   color: string;
@@ -31,6 +36,7 @@ export default function Card({
   progress: MotionValue<number>;
   range: number[];
   targetScale: number;
+  techs: Tech[];
 }) {
   const container = useRef(null);
 
@@ -44,17 +50,28 @@ export default function Card({
   return (
     <div className="sticky top-40 flex h-[75vh] items-start justify-center md:top-[200px] md:h-[42vh]">
       <motion.div
-        className="relative my-10 flex h-[520px] md:h-[800px] w-full origin-top flex-col rounded-xl p-6 md:h-96 md:p-12"
+        className="relative my-10 flex h-[520px] w-full origin-top flex-col rounded-xl p-6 md:h-96 md:p-12"
         style={{
           backgroundColor: color,
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
         }}
       >
-        <h2 className="m-0 mb-2 text-center text-3xl">{title}</h2>
+        <h2 className="m-0 mb-2 flex flex-row justify-start gap-1 text-3xl font-semibold">
+          <Image
+            src={icon}
+            alt="icon"
+            width={24}
+            height={24}
+            className="min-w-8 rounded-full py-1"
+          />
+          {title}
+        </h2>
         <div className="relative flex h-full flex-col gap-4 md:flex-row md:gap-12">
           <div className="flex flex-col">
-            <p className="text-lg text-justify [&::first-letter]:text-3xl">{description}</p>
+            <p className="text-justify text-lg [&::first-letter]:text-3xl">
+              {description}
+            </p>
             <a
               href={link}
               target="_blank"
@@ -71,9 +88,25 @@ export default function Card({
               <FaGithub />
               {repo}
             </a>
+            {!!techs && (
+              <div className="mt-1 flex flex-row items-center gap-0.5 align-middle">
+                {techs.map((tech) => (
+                  <Magnet pull={0.25} key={`icon_${tech.name}`}>
+                    <a href={`/stack?s=${tech.name}`} target="_blank">
+                      <Image
+                        src={tech.icon ?? ""}
+                        alt="icon"
+                        width={16}
+                        height={16}
+                      />
+                    </a>
+                  </Magnet>
+                ))}
+              </div>
+            )}
           </div>
 
-          <div className="relative h-[180px] md:h-full w-full min-w-[200px] overflow-hidden rounded-xl md:max-w-[420px]">
+          <div className="relative flex w-full min-w-[200px] flex-grow overflow-hidden rounded-xl md:h-full md:max-w-[420px]">
             <motion.div className="h-full w-full" style={{ scale: imageScale }}>
               <Image
                 fill
